@@ -1,4 +1,4 @@
-# DESIGN — Expense Ledger
+# DESIGN — Expense Tracker
 
 The rules every screen follows. Written before the screens; if a screen needs something that is not here, this file changes first.
 

@@ -1,4 +1,4 @@
-# Expense Ledger
+# Expense Tracker: web dashboard
 
 [![CI](https://github.com/Omkar210404/expense-dashboard/actions/workflows/ci.yml/badge.svg)](https://github.com/Omkar210404/expense-dashboard/actions/workflows/ci.yml)
 
