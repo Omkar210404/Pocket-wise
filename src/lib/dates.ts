@@ -70,6 +70,15 @@ export function monthLabel(month: string, style: 'long' | 'short' | 'name' = 'lo
   return date.toLocaleDateString(undefined, { month: 'long', year: 'numeric' });
 }
 
+/** `"2026-06-10"` -> `"10 Jun"`, for lists where the year is obvious. */
+export function formatDayMonth(iso: string): string {
+  const [year = 0, month = 1, day = 1] = iso.split('-').map(Number);
+  return new Date(year, month - 1, day).toLocaleDateString(undefined, {
+    day: 'numeric',
+    month: 'short',
+  });
+}
+
 /** `"2026-06-10"` -> `"10 Jun 2026"` in the reader's locale. */
 export function formatDate(iso: string): string {
   const [year = 0, month = 1, day = 1] = iso.split('-').map(Number);

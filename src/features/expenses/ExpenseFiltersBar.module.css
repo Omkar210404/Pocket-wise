@@ -1,0 +1,61 @@
+.bar {
+  display: grid;
+  grid-template-columns: minmax(200px, 2fr) minmax(0, 7fr);
+  align-items: start;
+  gap: var(--s-3);
+  padding: var(--s-4) 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.top {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--s-2);
+}
+
+.search {
+  flex: 1;
+}
+
+.toggle {
+  display: none;
+}
+
+.more {
+  display: grid;
+  grid-template-columns: 1.3fr 1.2fr 1.2fr 1fr 1fr 1.2fr;
+  align-items: start;
+  gap: var(--s-3);
+}
+
+.clear {
+  grid-column: 1 / -1;
+  justify-self: start;
+  margin-left: calc(var(--s-2) * -1);
+}
+
+@media (max-width: 1080px) {
+  .bar {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .more {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Phone: the search stays, the rest opens from a "Filters" button. */
+@media (max-width: 640px) {
+  .toggle {
+    display: inline-flex;
+  }
+
+  .more {
+    display: none;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .more.open {
+    display: grid;
+  }
+}

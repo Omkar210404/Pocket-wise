@@ -74,6 +74,14 @@ function formatter(kind: 'full' | 'compact' | 'whole'): Intl.NumberFormat {
   return cached;
 }
 
+/** The currency's symbol in the reader's locale, for example `₹`. Used in field labels. */
+export function currencySymbol(): string {
+  const part = formatter('whole')
+    .formatToParts(0)
+    .find((piece) => piece.type === 'currency');
+  return part?.value ?? currency;
+}
+
 /** Format minor units for display, for example `24950` -> `₹249.50`. */
 export function formatMinor(minor: number, kind: 'full' | 'compact' | 'whole' = 'full'): string {
   return formatter(kind).format(minor / 100);
