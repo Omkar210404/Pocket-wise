@@ -1,4 +1,4 @@
-import '@fontsource-variable/fraunces/opsz.css';
+import '@fontsource-variable/newsreader/opsz.css';
 import '@fontsource/ibm-plex-sans/latin-400.css';
 import '@fontsource/ibm-plex-sans/latin-500.css';
 import '@fontsource/ibm-plex-sans/latin-600.css';

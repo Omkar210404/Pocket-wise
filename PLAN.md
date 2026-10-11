@@ -109,7 +109,7 @@ component → feature hook (useQuery/useMutation) → api/endpoints.ts → api/c
   - _`localStorage`_ persists after the tab closes and is shared across tabs, for a token that is only valid 30 minutes anyway.
   - _`sessionStorage`_ survives a reload and dies with the tab. It is still readable by injected script, same as `localStorage`. The README will say this plainly, and say that the real fix (httpOnly cookie + refresh token) needs backend changes.
 - **Automatic logout** from three triggers, all ending in the same `logout("expired")`:
-  1. a timer set to the token's `exp` claim (falls back to `expires_in`);
+  1. a timer set from the login's `expires_in`, counted on this device's clock so a clock that differs from the server's does not shift it;
   2. a check when the tab regains focus, since browsers throttle timers in background tabs;
   3. any 401 on an authenticated request.
      Logout clears the token and the query cache and goes to `/login` with a "Your session expired" notice.
@@ -128,7 +128,7 @@ component → feature hook (useQuery/useMutation) → api/endpoints.ts → api/c
 
 - **Look**: a paper ledger. Warm off-white ground, deep ink text, hairline rules, generous whitespace. No shadows, no rounded card boxes.
 - **Accent**: one deep ledger green. A muted brick red is used only as the over-budget status colour, never as decoration.
-- **Type**: Fraunces (serif) for headings and large numbers, IBM Plex Sans for the UI, self-hosted through `@fontsource` so there are no network font requests. Tabular lining numerals on every money value.
+- **Type**: Newsreader (serif; Fraunces was planned but has no tabular figures, see DESIGN.md) for headings and large numbers, IBM Plex Sans for the UI, self-hosted through `@fontsource` so there are no network font requests. Tabular lining numerals on every money value.
 - **Layout**: ruled sections instead of cards. The dashboard is a 12-column bento grid whose cells are divided by 1 px rules; it collapses to one column on phones.
 - **Motion**: number count-up and bar fill on load only. Both are off under `prefers-reduced-motion`.
 - **Themes**: dark is the default (decided at plan review): a warm near-black "ink" ground with paper-coloured text, not a grey-blue admin look. Light "paper" is the designed variant, switched by a toggle.
@@ -200,7 +200,7 @@ I will report the real pass counts from the run, nothing else.
 | Several tools just had major releases (Vite 8, Vitest 5, MSW 3, ESLint 10, Recharts 3) and may differ from what I know | Read each package's installed docs and types before using it; pin exact versions; drop back one major if something does not fit |
 | jsdom has no `dialog.showModal()`                                                                                      | Small shim in the test setup                                                                                                    |
 | Recharts renders at zero size in jsdom                                                                                 | Test the data shaping and the hidden table, not the SVG                                                                         |
-| Fraunces or Plex may lack tabular figures or the currency glyph                                                        | Check the real font files in step 2; fallback pairing is Source Serif 4 + Inter                                                 |
+| Fraunces or Plex may lack tabular figures or the currency glyph                                                        | Happened: Fraunces has none. Measured six serifs in the browser and switched to Newsreader                                      |
 | Demo handlers drift from the real backend                                                                              | Tests on the handlers, plus the real-API smoke test                                                                             |
 | The client's local month can differ from the server's UTC month for a few hours at month end                           | Documented in the README limitations                                                                                            |
 | Screenshots need a browser                                                                                             | `playwright-core` with the installed Edge, no browser download                                                                  |

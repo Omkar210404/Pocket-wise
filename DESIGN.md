@@ -50,16 +50,17 @@ Rules:
 
 | Role                | Face          | Size / line                       | Weight | Notes                                          |
 | ------------------- | ------------- | --------------------------------- | ------ | ---------------------------------------------- |
-| Hero number         | Fraunces      | `clamp(2.75rem, 7vw, 4.5rem)` / 1 | 400    | one per page                                   |
-| Page title (h1)     | Fraunces      | 2rem / 1.15                       | 500    |                                                |
-| Section title (h2)  | Fraunces      | 1.25rem / 1.25                    | 500    |                                                |
-| Figure (stat value) | Fraunces      | 1.75rem / 1.1                     | 400    |                                                |
+| Hero number         | Newsreader    | `clamp(2.75rem, 7vw, 4.5rem)` / 1 | 400    | one per page                                   |
+| Page title (h1)     | Newsreader    | 2rem / 1.15                       | 500    |                                                |
+| Section title (h2)  | Newsreader    | 1.25rem / 1.25                    | 500    |                                                |
+| Figure (stat value) | Newsreader    | 1.75rem / 1.1                     | 400    |                                                |
 | Body, controls      | IBM Plex Sans | 0.9375rem / 1.5                   | 400    |                                                |
 | Small               | IBM Plex Sans | 0.8125rem / 1.45                  | 400    |                                                |
 | Label               | IBM Plex Sans | 0.6875rem / 1.3                   | 500    | uppercase, `letter-spacing: 0.09em`, `--ink-3` |
 
 - Serif for headings and for large numbers. Sans for everything you read or press.
 - **Every money value uses `font-variant-numeric: tabular-nums lining-nums`**, through the `<Money>` component. This also keeps the hero number from jittering while it counts up.
+- **Why Newsreader.** The first choice was Fraunces, but measuring it in the browser showed it has no tabular figures: `1111`, `0000` and `7777` came out at three different widths. Newsreader gives all three the same width, has the ₹ sign, and is a newspaper face, which suits a ledger. IBM Plex Sans was measured the same way and is tabular too.
 - Fonts are self-hosted from `@fontsource` packages. The app makes no request to a font CDN.
 - Fallback stacks: `Georgia, 'Times New Roman', serif` and `system-ui, 'Segoe UI', sans-serif`.
 
