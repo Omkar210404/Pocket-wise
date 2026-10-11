@@ -1,0 +1,13 @@
+.picker {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+}
+
+.month {
+  min-width: 13ch;
+  font-family: var(--font-serif);
+  font-size: 1.0625rem;
+  text-align: center;
+  white-space: nowrap;
+}

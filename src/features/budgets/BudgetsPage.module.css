@@ -1,0 +1,248 @@
+.totals {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  margin: 0;
+  border-bottom: 1px solid var(--rule);
+  background: var(--rule);
+}
+
+.totals > div {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  padding: var(--s-5) var(--s-5) var(--s-5) 0;
+  background: var(--bg);
+}
+
+.totals > div + div {
+  padding-left: var(--s-5);
+}
+
+.totals dd {
+  font-family: var(--font-serif);
+  font-size: var(--text-figure);
+  line-height: 1.1;
+}
+
+.over {
+  color: var(--danger);
+}
+
+.copy {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-3) var(--s-5);
+  padding: var(--s-4) 0;
+  border-bottom: 1px solid var(--rule);
+  color: var(--ink-2);
+}
+
+.table th,
+.table td {
+  padding: var(--s-3);
+  border-bottom: 1px solid var(--rule);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.table thead th {
+  padding-top: var(--s-4);
+  padding-bottom: var(--s-2);
+  border-bottom-color: var(--rule-strong);
+  color: var(--ink-3);
+  font-size: var(--text-label);
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.table th:first-child {
+  padding-left: 0;
+}
+
+.table td:last-child,
+.table th:last-child {
+  padding-right: 0;
+}
+
+.name {
+  width: 20%;
+  font-family: var(--font-serif);
+  font-size: 1.0625rem;
+  font-weight: 500;
+}
+
+.table .spent {
+  width: 14%;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.cellLabel {
+  display: none;
+}
+
+.budget {
+  width: 26%;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+}
+
+.input {
+  width: 100%;
+  min-width: 0;
+  max-width: 160px;
+  min-height: var(--control-height);
+  padding: 0 var(--s-3);
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius);
+  background: var(--surface);
+  text-align: right;
+}
+
+.input::placeholder {
+  color: var(--ink-3);
+  opacity: 1;
+}
+
+.input:hover {
+  border-color: var(--ink-2);
+}
+
+.input[aria-invalid='true'] {
+  border-color: var(--danger);
+}
+
+.error {
+  margin-top: var(--s-1);
+  color: var(--danger);
+  font-size: var(--text-small);
+}
+
+.standing {
+  min-width: 180px;
+}
+
+.standingText {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--s-3);
+  margin-top: var(--s-2);
+  color: var(--ink-2);
+  font-size: var(--text-small);
+}
+
+.percent {
+  color: var(--ink-3);
+}
+
+.near > span:first-child {
+  color: var(--warn);
+}
+
+.standingText.over > span:first-child {
+  color: var(--danger);
+  font-weight: 500;
+}
+
+.none {
+  color: var(--ink-3);
+  font-size: var(--text-small);
+}
+
+.actions {
+  width: 1%;
+  text-align: right;
+  white-space: nowrap;
+}
+
+@media (max-width: 960px) {
+  .totals {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .totals > div:nth-child(odd) {
+    padding-left: 0;
+  }
+}
+
+/* Phone: each category becomes a block, with its budget input on its own line. */
+@media (max-width: 640px) {
+  .totals > div {
+    padding: var(--s-4) var(--s-3) var(--s-4) 0;
+  }
+
+  .totals > div:nth-child(even) {
+    padding-left: var(--s-3);
+  }
+
+  .totals dd {
+    font-size: 1.375rem;
+  }
+
+  .table,
+  .table tbody {
+    display: block;
+  }
+
+  .table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+
+  .table tr {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      'name spent'
+      'standing standing'
+      'budget actions';
+    align-items: center;
+    gap: var(--s-3);
+    padding: var(--s-4) 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .table th,
+  .table td {
+    width: auto;
+    padding: 0;
+    border: 0;
+  }
+
+  .name {
+    grid-area: name;
+  }
+
+  .table .spent {
+    grid-area: spent;
+    width: auto;
+    color: var(--ink-2);
+  }
+
+  .cellLabel {
+    display: inline;
+  }
+
+  .budget {
+    grid-area: budget;
+  }
+
+  .standing {
+    grid-area: standing;
+    min-width: 0;
+  }
+
+  .actions {
+    grid-area: actions;
+  }
+}
