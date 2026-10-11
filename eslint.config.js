@@ -28,7 +28,8 @@ export default defineConfig([
   {
     files: ['scripts/**/*.mjs', '*.config.js'],
     extends: [js.configs.recommended],
-    languageOptions: { globals: globals.node },
+    // The screenshot script also holds functions that run inside the browser page.
+    languageOptions: { globals: { ...globals.node, ...globals.browser } },
   },
   prettier,
 ]);

@@ -50,7 +50,7 @@ describe('useSessionExpiry', () => {
     const onExpire = vi.fn();
     const { rerender } = renderHook(
       ({ expiresAt }: { expiresAt: number | null }) => useSessionExpiry(expiresAt, onExpire),
-      { initialProps: { expiresAt: Date.now() + 60_000 } },
+      { initialProps: { expiresAt: Date.now() + 60_000 } as { expiresAt: number | null } },
     );
 
     rerender({ expiresAt: null });

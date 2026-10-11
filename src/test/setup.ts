@@ -1,12 +1,16 @@
 import '@testing-library/jest-dom/vitest';
 
-import { cleanup } from '@testing-library/react';
+import { cleanup, configure } from '@testing-library/react';
 import { afterAll, afterEach, beforeAll, beforeEach, vi } from 'vitest';
 
 import { setUnauthorizedHandler } from '@/api/client';
 import { clearSession } from '@/auth/tokenStore';
 
 import { resetDb, server, TEST_NOW } from './server';
+
+// Pages are loaded lazily, and the first test in a file also pays for importing
+// the chart library. The default one second is too tight for that on a busy machine.
+configure({ asyncUtilTimeout: 5000 });
 
 // A request the fake API does not know is a bug in the test or the app.
 beforeAll(() => server.listen({ onUnhandledRequest: 'error' }));
