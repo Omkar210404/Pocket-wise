@@ -1,6 +1,6 @@
 # Expense Tracker: web dashboard
 
-[![CI](https://github.com/Omkar210404/expense-dashboard/actions/workflows/ci.yml/badge.svg)](https://github.com/Omkar210404/expense-dashboard/actions/workflows/ci.yml)
+[![CI](https://github.com/Omkar210404/price-expense-tracker/actions/workflows/ci.yml/badge.svg)](https://github.com/Omkar210404/price-expense-tracker/actions/workflows/ci.yml)
 
 A React + TypeScript dashboard for my [Expense-Tracker-API](https://github.com/Omkar210404/Expense-Tracker-API): log in, record expenses, set a budget per category, and see where the month went.
 
@@ -47,8 +47,8 @@ On a phone (390px wide):
 You need **Node 20.19+ or 22.12+** (built and tested on Node 22.16.0, npm 10.9.2, Windows 11).
 
 ```bash
-git clone https://github.com/Omkar210404/expense-dashboard.git
-cd expense-dashboard
+git clone https://github.com/Omkar210404/price-expense-tracker.git
+cd price-expense-tracker
 npm install
 ```
 

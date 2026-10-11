@@ -10,7 +10,7 @@
     <script>
       // Apply the saved theme before the first paint, so there is no flash.
       try {
-        var saved = localStorage.getItem('expense-dashboard.theme');
+        var saved = localStorage.getItem('price-expense-tracker.theme');
         if (saved === 'light' || saved === 'dark') {
           document.documentElement.dataset.theme = saved;
         }

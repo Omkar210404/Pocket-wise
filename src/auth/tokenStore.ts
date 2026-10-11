@@ -9,7 +9,7 @@
  * change to this file only.
  */
 
-const STORAGE_KEY = 'expense-dashboard.session';
+const STORAGE_KEY = 'price-expense-tracker.session';
 
 export interface Session {
   token: string;

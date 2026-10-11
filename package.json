@@ -1,5 +1,5 @@
 {
-  "name": "expense-dashboard",
+  "name": "price-expense-tracker",
   "private": true,
   "version": "0.1.0",
   "description": "React + TypeScript dashboard for the Expense-Tracker-API",
