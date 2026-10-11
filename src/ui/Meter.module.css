@@ -1,0 +1,31 @@
+.track {
+  height: 6px;
+  border-radius: 3px;
+  background: var(--surface-2);
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  border-radius: 3px;
+  transform-origin: left center;
+  animation: grow 600ms var(--ease-out) both;
+}
+
+.ok {
+  background: var(--accent);
+}
+
+.near {
+  background: var(--warn);
+}
+
+.over {
+  background: var(--danger);
+}
+
+@keyframes grow {
+  from {
+    transform: scaleX(0);
+  }
+}

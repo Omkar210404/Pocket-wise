@@ -1,0 +1,89 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-2);
+  min-height: var(--control-height);
+  padding: 0 var(--s-4);
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  background: none;
+  font-size: var(--text-body);
+  font-weight: 500;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color var(--fast),
+    border-color var(--fast),
+    color var(--fast);
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.primary {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.primary:hover:not(:disabled) {
+  background: color-mix(in oklab, var(--accent) 86%, var(--ink));
+}
+
+.secondary {
+  border-color: var(--rule-strong);
+  color: var(--ink);
+}
+
+.secondary:hover:not(:disabled) {
+  border-color: var(--ink);
+  background: var(--surface-2);
+}
+
+.quiet {
+  padding: 0 var(--s-2);
+  color: var(--ink-2);
+}
+
+.quiet:hover:not(:disabled) {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.danger {
+  color: var(--danger);
+}
+
+.secondary.danger {
+  border-color: color-mix(in oklab, var(--danger) 60%, var(--bg));
+}
+
+.secondary.danger:hover:not(:disabled) {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.quiet.danger:hover:not(:disabled) {
+  color: var(--danger);
+}
+
+.small {
+  min-height: 32px;
+  padding: 0 var(--s-3);
+  font-size: var(--text-small);
+}
+
+.small.quiet {
+  padding: 0 var(--s-2);
+}
+
+@media (pointer: coarse) {
+  .small {
+    min-height: 44px;
+  }
+}
