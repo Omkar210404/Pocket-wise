@@ -12,10 +12,11 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
 import { App } from './App';
-import { isDemo } from './env';
 
 async function start() {
-  if (isDemo) {
+  // Written out here, not imported, so the bundler can see that it is false in
+  // a normal build and leave the whole demo layer out of it.
+  if (import.meta.env.VITE_DEMO === 'true') {
     // Demo mode: the mock service worker must be answering before the first request.
     const { startDemo } = await import('./demo/browser');
     await startDemo();
