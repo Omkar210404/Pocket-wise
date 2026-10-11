@@ -125,7 +125,10 @@ function oneOf<T extends string>(
 ) {
   if (text === null) return fallback;
   if (!allowed.includes(text as T)) {
-    throw invalid(field, `Input should be ${allowed.map((option) => `'${option}'`).join(' or ')}`);
+    // Pydantic's wording: "'a', 'b' or 'c'".
+    const quoted = allowed.map((option) => `'${option}'`);
+    const list = [quoted.slice(0, -1).join(', '), quoted.at(-1)].filter(Boolean).join(' or ');
+    throw invalid(field, `Input should be ${list}`);
   }
   return text as T;
 }

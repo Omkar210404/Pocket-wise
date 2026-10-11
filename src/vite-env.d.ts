@@ -7,6 +7,8 @@ interface ImportMetaEnv {
   readonly VITE_DEMO?: string;
   /** ISO 4217 code used to format amounts. Display only. */
   readonly VITE_CURRENCY?: string;
+  /** Tests only: a running Expense-Tracker-API to compare the demo layer against. */
+  readonly VITE_REAL_API_URL?: string;
 }
 
 interface ImportMeta {
