@@ -1,0 +1,295 @@
+/*
+ * The bento grid. The 1px gaps show the grid's own background, so the cells
+ * are divided by hairline rules and need no borders or boxes of their own.
+ */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-areas:
+    'hero hero hero hero hero budget budget budget budget top top top'
+    'trend trend trend trend trend trend trend breakdown breakdown breakdown breakdown breakdown'
+    'progress progress progress progress progress progress progress recent recent recent recent recent';
+  gap: 1px;
+  border-bottom: 1px solid var(--rule);
+  background: var(--rule);
+}
+
+.cell {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  min-width: 0;
+  padding: var(--s-5);
+  background: var(--bg);
+}
+
+.hero {
+  grid-area: hero;
+}
+
+.budget {
+  grid-area: budget;
+}
+
+.top {
+  grid-area: top;
+}
+
+.trend {
+  grid-area: trend;
+}
+
+.breakdown {
+  grid-area: breakdown;
+}
+
+.progressCell {
+  grid-area: progress;
+}
+
+.recent {
+  grid-area: recent;
+}
+
+/* Cells on the page's edges line up with the page title: no outer padding. */
+.hero,
+.trend,
+.progressCell {
+  padding-left: 0;
+}
+
+.top,
+.breakdown,
+.recent {
+  padding-right: 0;
+}
+
+/* ---- figures ---- */
+
+.heroNumber {
+  font-family: var(--font-serif);
+  font-size: var(--text-hero);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.heroLine {
+  color: var(--ink-2);
+}
+
+.delta {
+  font-size: var(--text-small);
+  font-weight: 500;
+}
+
+/* Spending more than last month is the bad direction. */
+.up {
+  color: var(--danger);
+}
+
+.down {
+  color: var(--accent);
+}
+
+.figure {
+  font-family: var(--font-serif);
+  font-size: var(--text-figure);
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+}
+
+.figureLine {
+  color: var(--ink-2);
+  font-size: var(--text-small);
+}
+
+.overText {
+  color: var(--danger);
+  font-weight: 500;
+}
+
+/* ---- charts ---- */
+
+.note {
+  color: var(--ink-3);
+  font-size: var(--text-small);
+}
+
+.chart {
+  margin: 0;
+}
+
+.chart text {
+  font-family: var(--font-sans);
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+.tooltip {
+  padding: var(--s-2) var(--s-3);
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.tooltipValue {
+  font-weight: 600;
+}
+
+.tooltipName {
+  color: var(--ink-2);
+  font-size: var(--text-small);
+}
+
+.table th,
+.table td {
+  padding: var(--s-2) 0;
+  border-bottom: 1px solid var(--rule);
+  font-weight: 400;
+  text-align: left;
+}
+
+.table thead th {
+  color: var(--ink-3);
+  font-size: var(--text-label);
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.table .numeric {
+  padding-left: var(--s-4);
+  text-align: right;
+}
+
+/* ---- lists ---- */
+
+.more {
+  font-size: var(--text-small);
+  white-space: nowrap;
+}
+
+.progress {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+}
+
+.progressHead,
+.progressFoot {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s-3);
+}
+
+.progressHead {
+  margin-bottom: var(--s-2);
+}
+
+.progressName {
+  font-weight: 500;
+}
+
+.standing {
+  color: var(--ink-2);
+  font-size: var(--text-small);
+}
+
+.near {
+  color: var(--warn);
+}
+
+.over {
+  color: var(--danger);
+  font-weight: 500;
+}
+
+.progressFoot {
+  margin-top: var(--s-1);
+  color: var(--ink-3);
+  font-size: var(--text-small);
+}
+
+.unbudgeted {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-1);
+  margin-top: var(--s-2);
+}
+
+.rows li {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-4);
+  padding: var(--s-3) 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.rows li:last-child {
+  border-bottom: 0;
+}
+
+.rows li > :last-child {
+  margin-left: auto;
+}
+
+.rowDate {
+  flex-shrink: 0;
+  width: 6ch;
+  color: var(--ink-3);
+  font-size: var(--text-small);
+}
+
+.rowText {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.rowMeta {
+  color: var(--ink-3);
+  font-size: var(--text-small);
+}
+
+/* Tablet: two columns. */
+@media (max-width: 960px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas:
+      'hero hero'
+      'budget top'
+      'trend trend'
+      'breakdown breakdown'
+      'progress progress'
+      'recent recent';
+  }
+
+  .cell {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .budget {
+    padding-right: var(--s-5);
+  }
+
+  .top {
+    padding-left: var(--s-5);
+  }
+}
+
+/* Phone: one column. */
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: 'hero' 'budget' 'top' 'trend' 'breakdown' 'progress' 'recent';
+  }
+
+  .budget,
+  .top {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
