@@ -1,0 +1,45 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-5);
+}
+
+.notice {
+  padding: var(--s-2) var(--s-3);
+  border-left: 2px solid var(--warn);
+  background: color-mix(in oklab, var(--warn) 10%, transparent);
+  font-size: var(--text-small);
+}
+
+.demo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--s-3);
+  padding: var(--s-4) 0;
+  border-top: 2px solid var(--ink);
+  border-bottom: 1px solid var(--rule);
+  color: var(--ink-2);
+}
+
+.demo strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+}
+
+.form button {
+  align-self: flex-start;
+  margin-top: var(--s-2);
+}
+
+.other {
+  padding-top: var(--s-4);
+  border-top: 1px solid var(--rule);
+  color: var(--ink-2);
+}

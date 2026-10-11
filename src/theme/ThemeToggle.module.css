@@ -1,0 +1,19 @@
+.toggle {
+  display: grid;
+  place-items: center;
+  width: var(--control-height);
+  height: var(--control-height);
+  border: 0;
+  border-radius: var(--radius);
+  background: none;
+  color: var(--ink-2);
+  cursor: pointer;
+  transition:
+    background-color var(--fast),
+    color var(--fast);
+}
+
+.toggle:hover {
+  background: var(--surface-2);
+  color: var(--ink);
+}

@@ -81,7 +81,7 @@ Rules:
 
 - _Primary_: accent fill, `--on-accent` text. At most one per view.
 - _Secondary_: 1px `--rule-strong` border, `--ink` text.
-- _Quiet_: text only, underlined on hover. Destructive actions are quiet or secondary in `--danger`, never a filled red button.
+- _Quiet_: text only, underlined on hover. Destructive actions are never a filled red button: a secondary one is outlined in `--danger`, a quiet one turns `--danger` on hover and focus.
 
 **Fields.** Label above the control, always visible (no placeholder-as-label). 1px `--rule-strong` border on `--surface`. An error message sits under the field in `--danger`, starts with what to do, and is tied to the control with `aria-describedby`.
 

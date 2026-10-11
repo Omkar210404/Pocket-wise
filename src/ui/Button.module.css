@@ -55,12 +55,14 @@
   text-underline-offset: 3px;
 }
 
-.danger {
+.secondary.danger {
+  border-color: color-mix(in oklab, var(--danger) 60%, var(--bg));
   color: var(--danger);
 }
 
-.secondary.danger {
-  border-color: color-mix(in oklab, var(--danger) 60%, var(--bg));
+/* A row of red "Delete" links shouts. The quiet kind turns red only when pointed at. */
+.quiet.danger:focus-visible {
+  color: var(--danger);
 }
 
 .secondary.danger:hover:not(:disabled) {

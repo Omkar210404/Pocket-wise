@@ -28,6 +28,15 @@ afterEach(() => {
 });
 
 // jsdom has no layout, so it does not implement these. The app only needs them to exist.
+if (!('ResizeObserver' in globalThis)) {
+  // The chart library measures its container with this.
+  globalThis.ResizeObserver = class {
+    observe() {}
+    unobserve() {}
+    disconnect() {}
+  };
+}
+
 if (!HTMLDialogElement.prototype.showModal) {
   HTMLDialogElement.prototype.showModal = function showModal(this: HTMLDialogElement) {
     this.setAttribute('open', '');

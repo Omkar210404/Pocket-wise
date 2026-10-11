@@ -1,0 +1,120 @@
+.masthead {
+  border-bottom: 1px solid var(--rule);
+  background: var(--bg);
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas: 'home nav tools';
+  align-items: center;
+  column-gap: var(--s-6);
+  max-width: var(--page-width);
+  min-height: 64px;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.strip {
+  display: none;
+}
+
+.badge {
+  display: inline-flex;
+}
+
+.home {
+  grid-area: home;
+  text-decoration: none;
+  border-radius: var(--radius);
+}
+
+.nav {
+  grid-area: nav;
+  display: flex;
+  align-self: stretch;
+  gap: var(--s-5);
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  color: var(--ink-2);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color var(--fast);
+}
+
+.link:hover {
+  color: var(--ink);
+}
+
+.active {
+  border-bottom-color: var(--accent);
+  color: var(--ink);
+}
+
+.tools {
+  grid-area: tools;
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+}
+
+.email {
+  max-width: 22ch;
+  margin: 0 var(--s-2);
+  overflow: hidden;
+  color: var(--ink-3);
+  font-size: var(--text-small);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 960px) {
+  .email {
+    display: none;
+  }
+}
+
+/* Phone: the name and tools on one row, the navigation on its own row below. */
+@media (max-width: 640px) {
+  .strip {
+    display: block;
+    padding: var(--s-1) var(--gutter);
+    border-bottom: 1px solid var(--warn);
+    color: var(--warn);
+    font-size: var(--text-label);
+    font-weight: 600;
+    letter-spacing: 0.09em;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .badge {
+    display: none;
+  }
+
+  .inner {
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      'home tools'
+      'nav nav';
+    min-height: 0;
+    padding-top: var(--s-2);
+  }
+
+  .nav {
+    justify-content: space-between;
+    gap: var(--s-2);
+    margin-top: var(--s-1);
+  }
+
+  .link {
+    flex: 1;
+    justify-content: center;
+    min-height: 44px;
+  }
+}

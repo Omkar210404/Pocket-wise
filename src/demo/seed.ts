@@ -8,11 +8,10 @@
 import type { PaymentMethod } from '@/api/types';
 import { addMonths, currentMonth, daysInMonth, toIsoDate } from '@/lib/dates';
 
+import { DEMO_EMAIL, DEMO_PASSWORD } from './account';
 import type { DemoDb } from './db';
 
-/** The demo account. Not a secret: it exists only in the browser's memory. */
-export const DEMO_EMAIL = 'demo@example.com';
-export const DEMO_PASSWORD = 'demo-ledger';
+export { DEMO_EMAIL, DEMO_PASSWORD };
 
 const MONTHS_OF_HISTORY = 6;
 
@@ -148,8 +147,12 @@ export function seedDemoDb(db: DemoDb, now: Date = new Date()): void {
     for (let i = between(1, 2); i > 0; i -= 1) {
       add('Entertainment', day(), between(320, 640), 'Movie tickets', 'upi');
     }
-    // One clear over-budget case in the current month, so that state is on show.
-    if (back === 0) add('Entertainment', 4, 1800, 'Concert tickets', 'card');
+    // The current month always shows two states: one category over its budget,
+    // and some spending in a category that has no budget.
+    if (back === 0) {
+      add('Entertainment', 4, 1800, 'Concert tickets', 'card');
+      add('Health', 2, 340, 'Pharmacy', 'upi');
+    }
 
     for (let i = between(1, 3); i > 0; i -= 1) addFrom('Shopping', pick(SHOPPING), day());
 

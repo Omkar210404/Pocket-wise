@@ -63,9 +63,7 @@ export const api = {
   },
 
   budgets: {
-    list: (month: IsoMonth, signal?: AbortSignal) =>
-      request<BudgetOut[]>('/budgets', { query: { month }, signal }),
-
+    /** Budget, spent, remaining and percent per budgeted category, plus unbudgeted spending. */
     status: (month: IsoMonth, signal?: AbortSignal) =>
       request<BudgetStatus>('/budgets/status', { query: { month }, signal }),
 
