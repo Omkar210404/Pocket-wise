@@ -73,12 +73,15 @@ export interface BreakdownRow {
   count: number;
 }
 
+/** An account starts with nine categories. All of them, and one more, fit without folding. */
+export const BREAKDOWN_LIMIT = 10;
+
 /**
  * The category bars, largest first as the API sends them. Past `limit` rows
  * the smallest categories are folded into one "Other" row, so the chart stays
  * readable however many categories there are.
  */
-export function breakdownRows(summary: CategorySummary, limit = 7): BreakdownRow[] {
+export function breakdownRows(summary: CategorySummary, limit = BREAKDOWN_LIMIT): BreakdownRow[] {
   const rows: BreakdownRow[] = summary.categories.map((category) => {
     const minor = toMinor(category.total);
     return {
