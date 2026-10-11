@@ -3,7 +3,7 @@ import { useCallback, useEffect, useMemo, useState, type ReactNode } from 'react
 import { ThemeContext, type Theme } from './themeContext';
 
 /** Also read by the inline script in index.html, which applies the theme before first paint. */
-const STORAGE_KEY = 'price-expense-tracker.theme';
+const STORAGE_KEY = 'pocket-wise.theme';
 
 function initialTheme(): Theme {
   return document.documentElement.dataset.theme === 'light' ? 'light' : 'dark';

@@ -19,10 +19,10 @@ describe('tokenStore', () => {
   });
 
   it('ignores stored data that is not a session', () => {
-    window.sessionStorage.setItem('price-expense-tracker.session', '{"token": 42}');
+    window.sessionStorage.setItem('pocket-wise.session', '{"token": 42}');
     expect(readSession()).toBeNull();
 
-    window.sessionStorage.setItem('price-expense-tracker.session', 'not json');
+    window.sessionStorage.setItem('pocket-wise.session', 'not json');
     expect(readSession()).toBeNull();
   });
 

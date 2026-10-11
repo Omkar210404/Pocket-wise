@@ -47,7 +47,7 @@ async function openApp(browser, baseUrl, { theme, viewport }) {
     reducedMotion: 'reduce',
   });
   await context.addInitScript((value) => {
-    window.localStorage.setItem('price-expense-tracker.theme', value);
+    window.localStorage.setItem('pocket-wise.theme', value);
   }, theme);
   const page = await context.newPage();
   await page.goto(`${baseUrl}/login`);

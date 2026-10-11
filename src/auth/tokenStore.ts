@@ -9,7 +9,7 @@
  * change to this file only.
  */
 
-const STORAGE_KEY = 'price-expense-tracker.session';
+const STORAGE_KEY = 'pocket-wise.session';
 
 export interface Session {
   token: string;
