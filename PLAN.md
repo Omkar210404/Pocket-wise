@@ -1,6 +1,6 @@
 # PLAN — expense-dashboard
 
-A React + TypeScript frontend for my Expense-Tracker-API. Status: **plan only, nothing built yet.**
+A React + TypeScript frontend for my Expense-Tracker-API. Status: **built.** This is the plan the build followed; where the build had to differ, the line says so. The README describes the result.
 
 ## 1. What I found (real, from this machine)
 
@@ -13,7 +13,7 @@ A React + TypeScript frontend for my Expense-Tracker-API. Status: **plan only, n
 | Browsers for screenshots | Edge and Chrome are installed             |
 | `gh` CLI                 | not installed (I will not push; you push) |
 
-Latest package versions on npm today: Vite 8.3, React 19.3, React Router 7.18, TanStack Query 5.104, Recharts 3.10, Vitest 5.0, MSW 3.0, ESLint 10.12, TypeScript 7.0.
+Latest package versions on npm today: Vite 8.3, React 19.3, React Router 7.18, TanStack Query 5.104, Recharts 3.10, Vitest 5.0, MSW 3.0, ESLint 10.12, TypeScript 7.0. (npm installed MSW 2.15.0, which is what the project uses.)
 `typescript-eslint` 8.71 supports TypeScript `<6.1` only, so **TypeScript is pinned to 6.0.3**, not 7.
 
 **Backend contract** (read from `expense-tracker-api/app`, not edited)
@@ -40,13 +40,13 @@ Facts that shape the frontend:
 
 ## 2. Pages and routes
 
-| Route                 | Page                                           | Data                                                                                                                |
-| --------------------- | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| `/login`, `/register` | Auth (public; redirects to `/` when logged in) | `POST /auth/login`, `POST /auth/register` then login                                                                |
-| `/`                   | Dashboard                                      | `budgets/status` (this month), `summary/trends?months=6`, `summary/categories` (this month), `expenses?page_size=5` |
-| `/expenses`           | Expenses                                       | `expenses` with filters, `categories`, export                                                                       |
-| `/budgets`            | Budgets                                        | `categories`, `budgets?month=`, `budgets/status?month=`                                                             |
-| `*`                   | Not found                                      | none                                                                                                                |
+| Route                 | Page                                           | Data                                                                                                                       |
+| --------------------- | ---------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `/login`, `/register` | Auth (public; redirects to `/` when logged in) | `POST /auth/login`, `POST /auth/register` then login                                                                       |
+| `/`                   | Dashboard                                      | `budgets/status` (this month), `summary/trends?months=6`, `summary/categories` (this month), `expenses?page_size=5`        |
+| `/expenses`           | Expenses                                       | `expenses` with filters, `categories`, export                                                                              |
+| `/budgets`            | Budgets                                        | `categories`, `budgets/status?month=` (it already carries each budget's id and amount, so `budgets?month=` was not needed) |
+| `*`                   | Not found                                      | none                                                                                                                       |
 
 ## 3. Component tree
 
