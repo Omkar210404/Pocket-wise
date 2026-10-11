@@ -13,7 +13,7 @@ export function Wordmark() {
         />
         <path d="M18 15v6" stroke="var(--accent)" strokeWidth="2.5" strokeLinecap="round" />
       </svg>
-      Expense Tracker
+      Pocketwise
     </span>
   );
 }

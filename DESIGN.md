@@ -1,4 +1,4 @@
-# DESIGN — Expense Tracker
+# DESIGN — Pocketwise
 
 The rules every screen follows. Written before the screens; if a screen needs something that is not here, this file changes first.
 

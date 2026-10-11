@@ -23,7 +23,7 @@ export function Masthead() {
       {/* On a phone the top row has no room for the badge, so it gets a strip of its own. */}
       {isDemo && <p className={styles.strip}>Demo data: fictional expenses</p>}
       <div className={styles.inner}>
-        <Link to="/" className={styles.home} aria-label="Expense Tracker, overview">
+        <Link to="/" className={styles.home} aria-label="Pocketwise, overview">
           <Wordmark />
         </Link>
 

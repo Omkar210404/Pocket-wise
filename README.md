@@ -1,4 +1,4 @@
-# Expense Tracker: web dashboard
+# Pocketwise
 
 [![CI](https://github.com/Omkar210404/price-expense-tracker/actions/workflows/ci.yml/badge.svg)](https://github.com/Omkar210404/price-expense-tracker/actions/workflows/ci.yml)
 
